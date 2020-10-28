@@ -1,3 +1,7 @@
+//test test test
+/*
+hmmmmmmm
+ */
 public class Game
 {
     // Der erklæres to variabler
