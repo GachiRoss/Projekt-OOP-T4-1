@@ -1,9 +1,4 @@
 import java.util.HashMap;
-//hellooo meine freunds
-<<<<<<< HEAD
-=======
-//Test 2 Hej Igen
->>>>>>> Test
 
 public class CommandWords
 {
