@@ -2,22 +2,32 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.ArrayList;
 
 
 public class Room
 {
     private String description;
+<<<<<<< HEAD
     // Trash instance variable:
     public ArrayList<Trash> trash = new ArrayList<Trash>(5); // creates an ArrayList
+=======
+    public ArrayList<Trash> trash = new ArrayList<Trash>(5);
+>>>>>>> Test
     private HashMap<String, Room> exits; //?
 
     private Trash can = new Trash("Metal", "Can", 1);
     private Trash battery = new Trash("Hazardous waste", "Battery", 2);
     private Trash pizzaBox = new Trash("Residual waste", "Pizza box", 3);
     private Trash plasticBag = new Trash("Plastic", "Plastic bag", 4);
+<<<<<<< HEAD
     private Trash porcelainPlate = new Trash("Hazardous waste", "Porcelain plate", 5);
 
     // Constructor: adds trash objects of Trash to ArrayList trash
+=======
+    private Trash porcelainPlate = new Trash("Hazardous waste", "Pocelain plate", 5);
+
+>>>>>>> Test
     public Room(String description, ArrayList<Trash> trash)
     {
         this.description = description;
@@ -28,7 +38,10 @@ public class Room
         trash.add(pizzaBox);
         trash.add(plasticBag);
         trash.add(porcelainPlate);
+<<<<<<< HEAD
 
+=======
+>>>>>>> Test
     }
 
     public void setExit(String direction, Room neighbor) 
