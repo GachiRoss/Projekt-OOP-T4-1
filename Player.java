@@ -1,18 +1,27 @@
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList <Trash> inventoryList;
+    public ArrayList <Trash> inventoryList = new ArrayList<>();
 
 
-    //Her har vi vores metoder:
+    //Methods
     public void openInventory (){
-
+        for (int i=0; i<inventoryList.size(); i++){
+            // Prints out a description of the inventory list
+            System.out.println("Slot "+ (i+1) + ": " + inventoryList.get(i).name);
+        }
+        System.out.println();
     }
 
-    public void inspectTrash (){ //MANGLER INPUT ER DET TRASH ELLER INT?
+    public void inspectTrash (){
+        
 
     }
     public void pickUp (Trash trash){
+
+    }
+
+    public void dropItem(){
 
     }
 }
