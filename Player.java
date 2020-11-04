@@ -40,7 +40,9 @@ public class Player {
     }
 
     public void removeTrash (Trash trash) {
-        Room house = new Room("At home", )
+
+
+
     }
 
     public void pickUpTrash (Trash trash){
