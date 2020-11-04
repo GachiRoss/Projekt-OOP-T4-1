@@ -1,10 +1,34 @@
 import java.util.ArrayList;
 
 public class Player {
-    public ArrayList <Trash> inventoryList = new ArrayList<Trash> ();
 
+    // The player:
+    private String name;
+    public int points;
+
+
+    // The inventory made as an ArrayList with capacity 21
+    public ArrayList <Trash> inventoryList = new ArrayList<Trash> (21);
+
+    // Constructor:
+    Player(String name, int points){
+        this.name = name;
+        this.points = points;
+
+        points = 0;
+    }
+
+    // Getters and setters for player:
+    private String getName(){ return name; }
+    public int getPoints() { return points; }
+    private void setName() { this.name = name; }
+    private void setPoints() { this.points = points; } // is this needed??
 
     //Methods
+    public void addTrashToInv (Trash trash ){
+        inventoryList.add(trash);
+    }
+
     public void openInventory (){
         for (int i=0; i<inventoryList.size(); i++){
             // Prints out a description of the inventory list
@@ -16,8 +40,15 @@ public class Player {
     public void inspectTrash (){
 
     }
-    public void pickUp (Trash trash){
 
+    public void removeTrash (Trash trash) {
+        Room house = new Room("At home");
+    }
+
+    public void pickUpTrash (Trash trash){
+          // to pick up this method needs to play between removing a placed item from room and adding that item to player
+
+          
     }
 
     public void dropItem(){

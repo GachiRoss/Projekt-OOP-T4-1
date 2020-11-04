@@ -18,29 +18,33 @@ public class Game
 // metode
     private void createRooms()
     {
-        Room outside, theatre, pub, lab, office; //?
+        Room park, beach, street, conSite, foodTruck, home;
         // rum dannes som objekter
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        park = new Room("outside in a nice ass park");
+        beach = new Room("outside on a cool beach");
+        street = new Room("out on the streets, take a knife with you >:)");
+        conSite = new Room("on a wack ass construction site >:(");
+        foodTruck = new Room("next to a dope ass food truck... mmmm it do be smelling good");
+        home = new Room("in your nasty as hell apartment... wait was that a rat!?");
 
         //exits til rummene erklæres via metoden setExit
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        home.setExit("south", foodTruck);
 
-        theatre.setExit("west", outside);
+        foodTruck.setExit("north", home);
+        foodTruck.setExit("east", conSite);
+        foodTruck.setExit("west", street);
 
-        pub.setExit("east", outside);
+        conSite.setExit("west", foodTruck);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        street.setExit("east", foodTruck);
+        street.setExit("west", beach);
+        street.setExit("south", park);
 
-        office.setExit("west", lab);
+        beach.setExit("east", street);
 
-        currentRoom = outside;
+        park.setExit("north", street);
+
+        currentRoom = home;
     }
 //ny metode
     public void play() 
