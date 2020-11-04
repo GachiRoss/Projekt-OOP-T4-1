@@ -5,7 +5,7 @@ public class Player {
 
     // The player:
     private String name;
-    public int points;
+    public int points = 0;
 
 
     // The inventory made as an ArrayList with capacity 21
@@ -16,14 +16,13 @@ public class Player {
         this.name = name;
         this.points = points;
 
-        points = 0;
     }
 
     // Getters and setters for player:
     private String getName(){ return name; }
     public int getPoints() { return points; }
     private void setName() { this.name = name; }
-    private void setPoints() { this.points = points; } // is this needed??
+    public void setPoints() { this.points = points; } // is this needed??
 
     private int getPoints() {
         return points;
@@ -82,4 +81,14 @@ public class Player {
             }
         }
     }
+
+    public int givePoints(Containers gPoints){
+        if(checkRecycling == 1){
+            return 1;
+        } else {
+            return -1;
+        }
+
+    }
+}
 
