@@ -1,3 +1,4 @@
+import java.awt.Container;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,17 +25,6 @@ public class Player {
     private void setName() { this.name = name; }
     public void setPoints() { this.points = points; } // is this needed??
 
-    private int getPoints() {
-        return points;
-    }
-
-    private void setName() {
-        this.name = name;
-    }
-
-    private void setPoints() {
-        this.points = points;
-    } // is this needed??
 
     //Methods
     public void addTrashToInv(Trash trash) {
@@ -80,15 +70,17 @@ public class Player {
             return trash;
             }
         }
-    }
 
-    public int givePoints(Containers gPoints){
-        if(checkRecycling == 1){
-            return 1;
-        } else {
-            return -1;
+        public int givePoints(Containers point) {
+            if (Containers.checkRecycling() == 1) {
+                return points+1;
+            } else {
+                return points-1;
+            }
+
+
         }
 
     }
-}
+
 
