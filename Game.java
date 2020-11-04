@@ -6,7 +6,7 @@ public class Game
 {
     // Der erklæres to variabler
     private Parser parser;
-    private Room currentRoom;
+    private static Room currentRoom;
         
 // constructor - kører metode CreateRooms og laver et nyt objekt
     public Game() 
@@ -122,26 +122,27 @@ public class Game
         }
     }
 
-    private boolean restart(Command command){
+    private int restart(Command command){
         if (command.hasSecondWord()){
-            System.out.println("Are you sure you want to restart (this action will reset the game) ");
-            return false;
+            System.out.println("Restart what?");
+            return 0;
         }
-        else {
-            return true
+        else{
+            return 1;
         }
     }
 
-    private boolean quit(Command command) 
+    private int quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
-            return false;
+            return 0;
         }
         else {
-            return true;
+            return 2;
         }
     }
+}
     //handbook. Should print out text describing the game and the basic trashsorting function
     private void handbook() {
         System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
@@ -152,5 +153,9 @@ public class Game
         System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
         System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
         parser.showCommands();
+    }
+
+    public static Room getCurrentRoom() {
+        return currentRoom;
     }
 }
