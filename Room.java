@@ -23,7 +23,7 @@ public class Room
     // Constructor: adds trash objects of Trash to ArrayList trash
 
 
-    public Room(String description, ArrayList<Trash> trash)
+    public Room(String description)
     {
         this.description = description;
         exits = new HashMap<String, Room>();

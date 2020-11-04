@@ -12,6 +12,17 @@ public class Trash {
         // without constructor here we can't create trash objects in Room
     }
 
+    private String getName()
+    {
+        return name;
+    }
+
+    public int getID(){
+        return ID;
+    }
+
+
+
 
 
 }
