@@ -128,4 +128,29 @@ public class Game
             return true;
         }
     }
+    //"landFill" is a placeholder, it should be replaced with the landFill room (landFill = losseplads)
+    private void help (Command command){
+        if (currentRoom == landFill){
+            System.out.println("Plastic---------------------------------------------------- ");
+            System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +
+                    "in landfills, it could get incinerated or get reused. Plastic trash-\n" +
+                    "could be plastic bottles, plastic cutlery, plastic toys etc.");
+            System.out.println("Metal--------------------------------------------------");
+            System.out.println("Trash containing Metal have to be disposed in the Metal Container.\n" +
+                    "Even though a lot of energi is used to reuse metal, it still won't\n" +
+                    "use as much energi as it takes to extract metal.");
+            System.out.println("Harzardous Waste----------------------------------------------");
+            System.out.println("Hazardous Waste can't be disposed alongside regular trash since it-\n" +
+                    "might contain something harmful for either the environment or-\n" +
+                    "the people handling the trash. If a product is labelled with:\n" +
+                    "WARNING, CAUTION, FLAMMABLE, TOXIC, CORROSIVE or EXPLOSIVE it should\n" +
+                    "be thrown out with Hazardous Waste.");
+            System.out.println("Residual Waste--------------------------------------------------");
+            System.out.println("In Denmark Residual Waste gets burned to create electricity.\n" +
+                    "Residual waste is the leftover trash after sorting out -\n" +
+                    "reusable trash such as Plastic, Metal and sorting out-\n" +
+                    "Hazardous Waste.\n");
+        }
+
+    }
 }
