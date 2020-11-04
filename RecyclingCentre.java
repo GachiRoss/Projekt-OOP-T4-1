@@ -1,11 +1,10 @@
-public class RecyclingCentre {
+import java.util.ArrayList;
 
-    private String containerName;
-    private int containerID;
+public class RecyclingCentre extends Room {
 
+    public RecyclingCentre(String description, ArrayList<Trash> trash) {
+        super(description, trash);
 
-    RecyclingCentre(String containerName, int containerID) {
-        this.containerName = containerName;
-        this.containerID = containerID;
     }
+
 }
