@@ -6,7 +6,7 @@ public class Player {
     // The player:
     private String name;
     public int points;
-
+    private Game game = new Game();
 
     // The inventory made as an ArrayList with capacity 21
     public ArrayList<Trash> inventoryList = new ArrayList<Trash>(21);
@@ -65,6 +65,11 @@ public class Player {
     }
 
     public Trash dropItem() {
+        if (Game.getCurrentRoom() != recyclingCenter) {
+            return null;
+        }
+        else {
+        }
         if (!command.hasSecondWord()) {
             System.out.println("Drop what?");
             return null;
