@@ -6,7 +6,7 @@ public class Game
 {
     // Der erklæres to variabler
     private Parser parser;
-    private Room currentRoom;
+    private static Room currentRoom;
         
 // constructor - kører metode CreateRooms og laver et nyt objekt
     public Game() 
@@ -142,6 +142,10 @@ public class Game
         System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
         System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
         parser.showCommands();
+    }
+
+    public static Room getCurrentRoom() {
+        return currentRoom;
     }
     //"landFill" is a placeholder, it should be replaced with the landFill room (landFill = losseplads)
     private void help (Command command){
