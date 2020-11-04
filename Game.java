@@ -144,6 +144,16 @@ public class Game
         parser.showCommands();
     }
 
+
+
+
+
+
+
+
+
+
+    
     public static Room getCurrentRoom() {
         return currentRoom;
     }
