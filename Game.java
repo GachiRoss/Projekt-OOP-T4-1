@@ -70,24 +70,24 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private boolean processCommand(Command command) 
+    private int processCommand (Command command)
     {
-        boolean wantToQuit = false;
+        int wantToQuit = 0;
 
         CommandWord commandWord = command.getCommandWord();
 
-        if(commandWord == CommandWord.UNKNOWN) {
+        if (commandWord == CommandWord.UNKNOWN) {
             System.out.println("I don't know what you mean...");
-            return false;
+            return 0;
         }
 
         if (commandWord == CommandWord.HELP) {
             printHelp();
-        }
-        else if (commandWord == CommandWord.GO) {
+        } else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        }
-        else if (commandWord == CommandWord.QUIT) {
+        } else if (commandWord == commandWord.RESTART) {
+            wantToQuit = restart(command);
+        } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
@@ -122,16 +122,27 @@ public class Game
         }
     }
 
-    private boolean quit(Command command) 
+    private int restart(Command command){
+        if (command.hasSecondWord()){
+            System.out.println("Restart what?");
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
+
+    private int quit(Command command)
     {
         if(command.hasSecondWord()) {
             System.out.println("Quit what?");
-            return false;
+            return 0;
         }
         else {
-            return true;
+            return 2;
         }
     }
+}
     //handbook. Should print out text describing the game and the basic trashsorting function
     private void handbook() {
         System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
