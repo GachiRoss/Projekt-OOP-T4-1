@@ -1,3 +1,4 @@
+import java.awt.Container;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -5,8 +6,7 @@ public class Player {
 
     // The player:
     private String name;
-    public int points;
-    private Game game = new Game();
+    public int points = 0;
 
     // The inventory made as an ArrayList with capacity 21
     public ArrayList<Trash> inventoryList = new ArrayList<Trash>(21);
@@ -16,26 +16,14 @@ public class Player {
         this.name = name;
         this.points = points;
 
-        points = 0;
     }
 
     // Getters and setters for player:
     private String getName(){ return name; }
     public int getPoints() { return points; }
     private void setName() { this.name = name; }
-    private void setPoints() { this.points = points; } // is this needed??
+    public void setPoints() { this.points = points; } // is this needed??
 
-    private int getPoints() {
-        return points;
-    }
-
-    private void setName() {
-        this.name = name;
-    }
-
-    private void setPoints() {
-        this.points = points;
-    } // is this needed??
 
     //Methods
     public void addTrashToInv(Trash trash) {
@@ -86,5 +74,17 @@ public class Player {
             return trash;
             }
         }
+
+        public int givePoints(Containers point) {
+            if (Containers.checkRecycling() == 1) {
+                return points+1;
+            } else {
+                return points-1;
+            }
+
+
+        }
+
     }
+
 
