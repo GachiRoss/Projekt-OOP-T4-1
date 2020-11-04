@@ -132,29 +132,15 @@ public class Game
             return true;
         }
     }
-    //"landFill" is a placeholder, it should be replaced with the landFill room (landFill = losseplads)
-    private void help (Command command){
-        if (currentRoom == landFill){
-            System.out.println("Plastic---------------------------------------------------- ");
-            System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +
-                    "in landfills, it could get incinerated or get reused. Plastic trash-\n" +
-                    "could be plastic bottles, plastic cutlery, plastic toys etc.");
-            System.out.println("Metal--------------------------------------------------");
-            System.out.println("Trash containing Metal have to be disposed in the Metal Container.\n" +
-                    "Even though a lot of energi is used to reuse metal, it still won't\n" +
-                    "use as much energi as it takes to extract metal.");
-            System.out.println("Harzardous Waste----------------------------------------------");
-            System.out.println("Hazardous Waste can't be disposed alongside regular trash since it-\n" +
-                    "might contain something harmful for either the environment or-\n" +
-                    "the people handling the trash. If a product is labelled with:\n" +
-                    "WARNING, CAUTION, FLAMMABLE, TOXIC, CORROSIVE or EXPLOSIVE it should\n" +
-                    "be thrown out with Hazardous Waste.");
-            System.out.println("Residual Waste--------------------------------------------------");
-            System.out.println("In Denmark Residual Waste gets burned to create electricity.\n" +
-                    "Residual waste is the leftover trash after sorting out -\n" +
-                    "reusable trash such as Plastic, Metal and sorting out-\n" +
-                    "Hazardous Waste.\n");
-        }
-
+    //handbook. Should print out text describing the game and the basic trashsorting function
+    private void handbook() {
+        System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
+        System.out.println("You'll get more points if you sort the trash correctly");
+        System.out.println("Incorrect sorting will result in a loss of points");
+        System.out.println("Metallic trash generally consists of things like cans and other metal objects");
+        System.out.println("Plastic trash is a very common type of trash. Plastic bottles, bags, lids and many types of toys (Without the mechanical parts of course)");
+        System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
+        System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
+        parser.showCommands();
     }
 }
