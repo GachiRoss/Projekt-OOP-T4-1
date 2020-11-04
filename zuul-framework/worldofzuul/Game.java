@@ -1,8 +1,6 @@
-//test test test
-/*
-hmmmmmmm
- */
-public class Game
+package worldofzuul;
+
+public class Game 
 {
     // Der erklæres to variabler
     private Parser parser;
@@ -82,9 +80,8 @@ public class Game
         }
         else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        } else if (commandWord == commandWord.RESTART) {
-            play(command);
-        }else if (commandWord == CommandWord.QUIT) {
+        }
+        else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         }
         return wantToQuit;
@@ -116,16 +113,6 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
-        }
-    }
-
-    private boolean restart(Command command){
-        if (command.hasSecondWord()){
-            System.out.println("Are you sure you want to restart (this action will reset the game) ");
-            return false;
-        }
-        else {
-            return true
         }
     }
 
