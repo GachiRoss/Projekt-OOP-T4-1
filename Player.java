@@ -4,7 +4,7 @@ public class Player {
 
     // The player:
     private String name;
-    private int points;
+    public int points;
 
 
     // The inventory made as an ArrayList with capacity 21
@@ -14,11 +14,13 @@ public class Player {
     Player(String name, int points){
         this.name = name;
         this.points = points;
+
+        points = 0;
     }
 
     // Getters and setters for player:
     private String getName(){ return name; }
-    private int getPoints() { return points; }
+    public int getPoints() { return points; }
     private void setName() { this.name = name; }
     private void setPoints() { this.points = points; } // is this needed??
 
@@ -40,7 +42,7 @@ public class Player {
     }
 
     public void removeTrash (Trash trash) {
-        Room house = new Room("At home", )
+        Room house = new Room("At home");
     }
 
     public void pickUpTrash (Trash trash){

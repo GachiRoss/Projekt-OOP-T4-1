@@ -1,8 +1,15 @@
 public class MaterialsEnum {
 
-    enum materials {
+    //affalds materiale typerne
+    enum trashMaterials {
         PLASTIC, HW, RW, METAL;
 
     }
 
-}
+    //container materiale typerne
+    enum containerMaterials {
+        PLASTIC, HW, RW, METAL;
+    }
+
+    }
+
