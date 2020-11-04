@@ -2,7 +2,7 @@ public class Trash {
     // Attributter:
     public String material;
     public String name;
-    public int ID;
+    private int ID;
 
     // Constructor: objects (trash) are made here
     Trash (String material, String name, int trashID){
@@ -11,6 +11,17 @@ public class Trash {
         this.ID = trashID;
         // without constructor here we can't create trash objects in Room
     }
+
+    private String getName()
+    {
+        return name;
+    }
+
+    public int getID(){
+        return ID;
+    }
+
+
 
 
 
