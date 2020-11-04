@@ -128,4 +128,15 @@ public class Game
             return true;
         }
     }
+    //handbook. Should print out text describing the game and the basic trashsorting function
+    private void handbook() {
+        System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
+        System.out.println("You'll get more points if you sort the trash correctly");
+        System.out.println("Incorrect sorting will result in a loss of points");
+        System.out.println("Metallic trash generally consists of things like cans and other metal objects");
+        System.out.println("Plastic trash is a very common type of trash. Plastic bottles, bags, lids and many types of toys (Without the mechanical parts of course)");
+        System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
+        System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
+        parser.showCommands();
+    }
 }
