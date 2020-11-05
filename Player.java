@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
 
@@ -6,6 +7,8 @@ public class Player {
     private String name;
     private int points = 0;
     private Game game = new Game();
+    private Scanner scanner = new Scanner(System.in);
+    private int whatContain;
 
 
     // The inventory made as an ArrayList with capacity 21
@@ -60,32 +63,38 @@ public class Player {
     }
 
     public Trash dropItem() {
-        if (Game.getCurrentRoom() != recyclingCenter) {
+        if (!Game.getCurrentRoom().equals("reCenter")) {
             return null;
-        } else {
         }
-        if (!command.hasSecondWord()) {
-            System.out.println("Drop what?");
-            return null;
-        } else {
-            int index = command.getSecondWord();
-            index--;
-            if (index > inventoryList.size() || index < 0) {
-                System.out.println("You do not have an item there");
+        else {
+            if (!command.hasSecondWord()) {
+                System.out.println("Drop what?");
                 return null;
+            } else {
+                int index = command.getSecondWord();
+                index--;
+                if (index > inventoryList.size() || index < 0) {
+                    System.out.println("You do not have an item there");
+                    return null;
+                }
+                else {
+                    System.out.println("What Container do you want to drop it in?");
+                    System.out.println("1: metal, 2: Hazardous waste, 3: Residual waste, 4: Plastic");
+                    System.out.println("> ");
+                    whatContain = scanner.nextInt();
+                    Trash trash = inventoryList.get(index);
+                    inventoryList.remove(index);
+                    return trash;
+                }
             }
-            Trash trash = inventoryList.get(index);
-            inventoryList.remove(index);
-            return trash;
         }
     }
 
-    public int givePoints(Containers checkRecycling) {
-        if (checkRecycling.equals(1)) {
-            points++;
-        } else if (checkRecycling.equals(-1)){
-            points--;
+    public void givePoints() {
+        if (Game.getCurrentRoom().getName().equals("reCenter")) {
+            points += Game.getCurrentRoom().getContainers()[whatContain].checkRecycling(dropItem());
+            whatContain = 0;
         }
-        return 0;
+
     }
 }

@@ -3,6 +3,13 @@ public class Trash {
     public String material;
     public String name;
     private int ID;
+    /*
+    ID = material
+    1 = metal
+    2 = Hazardous waste
+    3 = Residual waste
+    4 = Plastic
+     */
 
     // Constructor: objects (trash) are made here
     Trash (String material, String name, int trashID){
