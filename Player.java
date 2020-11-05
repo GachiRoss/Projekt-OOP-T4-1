@@ -6,13 +6,12 @@ public class Player {
     // The player:
     private String name;
     private int points = 0;
-    private Game game = new Game();
     private Scanner scanner = new Scanner(System.in);
     private int whatContain;
     private Trash trash;
 
 
-    // The inventory made as an ArrayList with capacity 21
+    // The inventory made as an ArrayList with capacity 5
     public ArrayList<Trash> inventoryList = new ArrayList<Trash>(5);
 
     // Constructor:
@@ -53,8 +52,8 @@ public class Player {
         else {
             Trash newTrash = Game.getCurrentRoom().trash.get(trashIndex);     // An object of trash is created temporarily called newTrash
             inventoryList.add(newTrash);
-            Game.getCurrentRoom().trash.remove(trashIndex);             // Missing removeTrash method
-            System.out.println(trash + "has been added to inventory!");
+            Game.getCurrentRoom().trash.remove(trashIndex);
+            System.out.println(trash + " has been added to inventory!");
         }
     }
 
@@ -85,7 +84,7 @@ public class Player {
     //method for dropping items in the containers
     public void dropItem(Command command) {
         //method checks if player is in reCenter
-        if (!Game.getCurrentRoom().equals("reCenter")) {
+        if (Game.getCurrentRoom().getName().equals("reCenter") == false) {
             System.out.println("Go to the Recycling Center to do this");
         }
         else {
@@ -107,22 +106,24 @@ public class Player {
                     System.out.println("1: metal, 2: Hazardous waste, 3: Residual waste, 4: Plastic");
                     System.out.print("> ");
                     //scanner and a secondary function in assisting the givePoints method
-                    whatContain = scanner.nextInt();
+                    whatContain = scanner.nextInt() - 1;
                     //finds the trash chosen by the index number
                     Trash trash = inventoryList.get(index);
                     //removes the chosen index from the inventory
                     inventoryList.remove(index);
                     //assigns the trash a variable for use in the givePoints method
                     this.trash = trash;
+                    givePoints();
                 }
             }
         }
     }
 
-    public void givePoints() {
+    private void givePoints() {
         if (Game.getCurrentRoom().getName().equals("reCenter")) {
             points += Game.getCurrentRoom().getContainers()[whatContain].checkRecycling(trash);
             whatContain = 0;
+            System.out.println("You got " + points + " point(s) in total!");
         }
 
     }

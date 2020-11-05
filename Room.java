@@ -72,6 +72,7 @@ public class Room
     }
 
     public Container[] getContainers() {
+        System.out.println("you're not at the Recycling Center, wait til you get there.");
         return null;
     }
 
