@@ -166,7 +166,7 @@ public class Game {
     public static Room getCurrentRoom() {
         return currentRoom;
     }
-    private void help (Command command){
+    private void hint(Command command){
         if (currentRoom.getName().equals("reCenter")){
             System.out.println("Plastic---------------------------------------------------- ");
             System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +

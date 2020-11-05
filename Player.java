@@ -81,12 +81,6 @@ public class Player {
 
     }
 
-    public void pickUpTrash(Trash trash) {
-        // to pick up this method needs to play between removing a placed item from room and adding that item to player
-
-
-    }
-
     public void dropItem(Command command) {
         if (!Game.getCurrentRoom().equals("reCenter")) {
             System.out.println("Go to the Recycling Center to do this");
