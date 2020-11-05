@@ -1,13 +1,12 @@
-import java.awt.Container;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Player {
 
     // The player:
     private String name;
-    public int points = 0;
+    private int points = 0;
     private Game game = new Game();
+
 
     // The inventory made as an ArrayList with capacity 21
     public ArrayList<Trash> inventoryList = new ArrayList<Trash>(21);
@@ -20,10 +19,21 @@ public class Player {
     }
 
     // Getters and setters for player:
-    private String getName(){ return name; }
-    public int getPoints() { return points; }
-    private void setName() { this.name = name; }
-    public void setPoints() { this.points = points; } // is this needed??
+    private String getName() {
+        return name;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    private void setName() {
+        this.name = name;
+    }
+
+    public void setPoints() {
+        this.points = points;
+    } // is this needed??
 
 
     //Methods
@@ -43,7 +53,7 @@ public class Player {
 
     }
 
-    public void removeTrash (Trash trash) {
+    public void removeTrash(Trash trash) {
         //Room house = new Room("At home", )
     }
 
@@ -56,14 +66,12 @@ public class Player {
     public Trash dropItem() {
         if (Game.getCurrentRoom() != recyclingCenter) {
             return null;
-        }
-        else {
+        } else {
         }
         if (!command.hasSecondWord()) {
             System.out.println("Drop what?");
             return null;
-        }
-        else {
+        } else {
             int index = command.getSecondWord();
             index--;
             if (index > inventoryList.size() || index < 0) {
@@ -73,18 +81,15 @@ public class Player {
             Trash trash = inventoryList.get(index);
             inventoryList.remove(index);
             return trash;
-            }
         }
-
-        public int givePoints(Containers point) {
-            if (Containers.checkRecycling() == 1) {
-                return points+1;
-            } else {
-                return points-1;
-            }
-        }
-
-        
     }
 
-
+    public int givePoints(Containers checkRecycling) {
+        if (checkRecycling.equals(1)) {
+            points++;
+        } else if (checkRecycling.equals(-1)){
+            points--;
+        }
+        return 0;
+    }
+}
