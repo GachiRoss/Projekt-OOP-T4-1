@@ -13,7 +13,7 @@ public class Player {
 
 
     // The inventory made as an ArrayList with capacity 21
-    public ArrayList<Trash> inventoryList = new ArrayList<Trash>(21);
+    public ArrayList<Trash> inventoryList = new ArrayList<Trash>(5);
 
     // Constructor:
     Player(String name) {
@@ -29,10 +29,6 @@ public class Player {
 
     public int getPoints() {
         return points;
-    }
-
-    private void setName() {
-        this.name = name;
     }
 
 
@@ -86,11 +82,6 @@ public class Player {
         }
     }
 
-    public void pickUpTrash(Trash trash) {
-        // to pick up this method needs to play between removing a placed item from room and adding that item to player
-
-
-    }
     //method for dropping items in the containers
     public void dropItem(Command command) {
         //method checks if player is in reCenter
