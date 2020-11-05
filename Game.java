@@ -149,9 +149,21 @@ public class Game {
         System.out.println("Plastic trash is a very common type of trash. Plastic bottles, bags, lids and many types of toys (Without the mechanical parts of course)");
         System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
         System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
+        //should show the commands available to the player
         parser.showCommands();
     }
 
+}
+
+
+
+
+
+
+
+
+
+    
     public static Room getCurrentRoom() {
         return currentRoom;
     }
