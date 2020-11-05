@@ -6,23 +6,25 @@ public class Game {
     // Der erklæres to variabler
     private Parser parser;
     private static Room currentRoom;
-
-    // constructor - kører metode CreateRooms og laver et nyt objekt
-    public Game() {
-        createRooms();
+        
+// constructor - kører metode CreateRooms og laver et nyt objekt
+    public Game() 
+    {
         parser = new Parser();
     }
 
-    // metode
-    private void createRooms() {
-        Room park, beach, street, conSite, foodTruck, home;
+// metode
+    private void createRooms()
+    {
+        Room park, beach, street, conSite, foodTruck, home, reCenter;
         // rum dannes som objekter
-        park = new Room("outside in a nice ass park");
-        beach = new Room("outside on a cool beach");
-        street = new Room("out on the streets, take a knife with you >:)");
-        conSite = new Room("on a wack ass construction site >:(");
-        foodTruck = new Room("next to a dope ass food truck... mmmm it do be smelling good");
-        home = new Room("in your nasty as hell apartment... wait was that a rat!?");
+        park = new Room("outside in a nice ass park", "park");
+        beach = new Room("outside on a cool beach", "beach");
+        street = new Room("out on the streets, take a knife with you >:)", "street");
+        conSite = new Room("on a wack ass construction site >:(", "conSite");
+        foodTruck = new Room("next to a dope ass food truck... mmmm it do be smelling good", "foodTruck");
+        home = new Room("in your nasty as hell apartment... wait was that a rat!?", "home");
+        reCenter = new RecyclingCenter("The place you sort trash", "reCenter");
 
         //exits til rummene erklæres via metoden setExit
         home.setExit("south", foodTruck);
@@ -36,10 +38,13 @@ public class Game {
         street.setExit("east", foodTruck);
         street.setExit("west", beach);
         street.setExit("south", park);
+        street.setExit("north", reCenter);
 
         beach.setExit("east", street);
 
         park.setExit("north", street);
+
+        reCenter.setExit("south", street);
 
         currentRoom = home;
     }
@@ -47,13 +52,14 @@ public class Game {
     //ny metode
     public void play() {
         printWelcome();
-
-
-        boolean finished = false;
-        while (!finished) {
-            Command command = parser.getCommand();
-            finished = processCommand(command);
-        }
+        int finished = 0;
+        while (finished == 1)
+            createRooms();
+            finished = 0;
+            while (finished == 0) {
+                Command command = parser.getCommand();
+                finished = processCommand(command);
+            }
         System.out.println("Thank you for playing.  Good bye.");
     }
 
@@ -158,9 +164,8 @@ public class Game {
     public static Room getCurrentRoom() {
         return currentRoom;
     }
-    //"landFill" is a placeholder, it should be replaced with the landFill room (landFill = losseplads)
     private void help (Command command){
-        if (currentRoom == landFill){
+        if (currentRoom.getName().equals("reCenter")){
             System.out.println("Plastic---------------------------------------------------- ");
             System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +
                     "in landfills, it could get incinerated or get reused. \n" +
@@ -188,6 +193,8 @@ public class Game {
                     "Residual Waste examples:\n" +
                     "Pizzabox, diapers, vacuum bags, milk og juiceboxes etc.");
         }
-
+        else {
+            System.out.println("you're not at the Recycling Center, wait til you get there.");
+        }
     }
 }
