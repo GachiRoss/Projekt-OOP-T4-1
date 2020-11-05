@@ -37,11 +37,33 @@ public class Player {
 
 
     //Methods
-    public void addTrashToInv(Trash trash) {
-        inventoryList.add(trash);
+    public void pickUp (Command command) {
+        // check if there is a second word in command
+        if (!command.hasSecondWord()){
+            System.out.println("Missing second word...");
+        }
+
+        String trash = command.getSecondWord();     // ???
+
+        Trash newTrash = currentRoom.pickUp(trash);     // An object of trash is created temporarily called newTrash
+
+        if (newTrash == null){                          // checks if newTrash exists in the room?? ikke sikker
+            System.out.println("That piece of trash is not here!!");
+
+        }
+        else {
+            inventoryList.add(newTrash);
+            currentRoom.removeTrash(trash);             // Missing removeTrash method
+            System.out.println(trash + "has been added to the inventory!");
+        }
     }
 
-    public void openInventory() {
+    public void openInventory(Command command) {
+
+        if (command.hasSecondWord() == true){
+            System.out.println("Check what inventory?!");
+        }
+
         for (int i = 0; i < inventoryList.size(); i++) {
             // Prints out a description of the inventory list
             System.out.println("Slot " + (i + 1) + ": " + inventoryList.get(i).getName());
@@ -53,8 +75,10 @@ public class Player {
 
     }
 
-    public void removeTrash(Trash trash) {
-        //Room house = new Room("At home", )
+    public void removeTrash (Trash trash) {
+
+
+
     }
 
     public void pickUpTrash(Trash trash) {
