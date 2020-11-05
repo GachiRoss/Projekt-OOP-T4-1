@@ -152,20 +152,10 @@ public class Game {
         parser.showCommands();
     }
 
-}
-
-
-
-
-
-
-
-
-
-    
     public static Room getCurrentRoom() {
         return currentRoom;
     }
+
     private void help (Command command){
         if (currentRoom.getName().equals("reCenter")){
             System.out.println("Plastic---------------------------------------------------- ");

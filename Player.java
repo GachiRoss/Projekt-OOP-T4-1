@@ -43,18 +43,22 @@ public class Player {
             System.out.println("Missing second word...");
         }
 
-        String trash = command.getSecondWord();     // ???
-
-        Trash newTrash = currentRoom.pickUp(trash);     // An object of trash is created temporarily called newTrash
-
-        if (newTrash == null){                          // checks if newTrash exists in the room?? ikke sikker
+        String trash = command.getSecondWord();
+        trash.toLowerCase();
+        int trashIndex = -1;
+        for (int i = 0; i < Game.getCurrentRoom().trash.size(); i++) {
+            if (Game.getCurrentRoom().trash.get(i).getName().equals(trash)) {
+                trashIndex = i;
+            }
+        }
+        if (trashIndex < 0) {
             System.out.println("That piece of trash is not here!!");
-
         }
         else {
+            Trash newTrash = Game.getCurrentRoom().trash.get(trashIndex);     // An object of trash is created temporarily called newTrash
             inventoryList.add(newTrash);
-            currentRoom.removeTrash(trash);             // Missing removeTrash method
-            System.out.println(trash + "has been added to the inventory!");
+            Game.getCurrentRoom().trash.remove(trashIndex);             // Missing removeTrash method
+            System.out.println(trash + "has been added to inventory!");
         }
     }
 
@@ -71,14 +75,15 @@ public class Player {
         System.out.println();
     }
 
-    public void inspectTrash() {
-
-    }
-
-    public void removeTrash (Trash trash) {
-
-
-
+    public void inspectItem(Command command) {
+        if (command.hasSecondWord() == true){
+            int index = Integer.parseInt(command.getSecondWord());
+            Trash trash = inventoryList.get(index);
+            System.out.println("The name of the trash is " + trash.getName() + " which means it should be sorted with " + trash.getMaterial());
+        }
+        else {
+            System.out.println("Check what inventory?!");
+        }
     }
 
     public void pickUpTrash(Trash trash) {

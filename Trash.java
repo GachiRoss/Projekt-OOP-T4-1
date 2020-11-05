@@ -1,6 +1,6 @@
 public class Trash {
     // Attributter:
-    public String material;
+    private String material;
     private String name;
     private int ID;
     /*
@@ -26,6 +26,10 @@ public class Trash {
 
     public int getID(){
         return ID;
+    }
+
+    public String getMaterial() {
+        return material;
     }
 
 
