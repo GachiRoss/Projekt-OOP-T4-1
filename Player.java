@@ -82,10 +82,9 @@ public class Player {
             } else {
                 return points-1;
             }
-
-
         }
 
+        
     }
 
 
