@@ -9,15 +9,16 @@ public class Player {
     private Game game = new Game();
     private Scanner scanner = new Scanner(System.in);
     private int whatContain;
+    private Trash trash;
 
 
     // The inventory made as an ArrayList with capacity 21
     public ArrayList<Trash> inventoryList = new ArrayList<Trash>(21);
 
     // Constructor:
-    Player(String name, int points) {
+    Player(String name) {
         this.name = name;
-        this.points = points;
+        points = 0;
 
     }
 
@@ -86,29 +87,27 @@ public class Player {
 
     }
 
-    public Trash dropItem() {
+    public void dropItem(Command command) {
         if (!Game.getCurrentRoom().equals("reCenter")) {
-            return null;
+            System.out.println("Go to the Recycling Center to do this");
         }
         else {
             if (!command.hasSecondWord()) {
                 System.out.println("Drop what?");
-                return null;
             } else {
-                int index = command.getSecondWord();
+                int index = Integer.parseInt(command.getSecondWord());
                 index--;
                 if (index > inventoryList.size() || index < 0) {
                     System.out.println("You do not have an item there");
-                    return null;
                 }
                 else {
                     System.out.println("What Container do you want to drop it in?");
                     System.out.println("1: metal, 2: Hazardous waste, 3: Residual waste, 4: Plastic");
-                    System.out.println("> ");
+                    System.out.print("> ");
                     whatContain = scanner.nextInt();
                     Trash trash = inventoryList.get(index);
                     inventoryList.remove(index);
-                    return trash;
+                    this.trash = trash;
                 }
             }
         }
@@ -116,9 +115,15 @@ public class Player {
 
     public void givePoints() {
         if (Game.getCurrentRoom().getName().equals("reCenter")) {
-            points += Game.getCurrentRoom().getContainers()[whatContain].checkRecycling(dropItem());
+            points += Game.getCurrentRoom().getContainers()[whatContain].checkRecycling(trash);
             whatContain = 0;
         }
 
+    }
+
+    public void search() {
+        for (int i = 0; i < Game.getCurrentRoom().trash.size(); i++) {
+            System.out.println(Game.getCurrentRoom().trash.get(i).getName());
+        }
     }
 }

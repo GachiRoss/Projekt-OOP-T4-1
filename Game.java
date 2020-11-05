@@ -2,15 +2,16 @@
 /*
 hmmmmmmm
  */
-public class Game
-{
+public class Game {
     // Der erklæres to variabler
     private Parser parser;
     private static Room currentRoom;
+    private Player player;
         
 // constructor - kører metode CreateRooms og laver et nyt objekt
     public Game() 
     {
+        player = new Player("Bob");
         parser = new Parser();
     }
 
@@ -49,9 +50,9 @@ public class Game
 
         currentRoom = home;
     }
-//ny metode
-    public void play() 
-    {            
+
+    //ny metode
+    public void play() {
         printWelcome();
         int finished = 0;
         while (finished == 1)
@@ -64,8 +65,7 @@ public class Game
         System.out.println("Thank you for playing.  Good bye.");
     }
 
-    private void printWelcome()
-    {
+    private void printWelcome() {
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
@@ -74,8 +74,7 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     }
 
-    private int processCommand (Command command)
-    {
+    private int processCommand(Command command) {
         int wantToQuit = 0;
 
         CommandWord commandWord = command.getCommandWord();
@@ -97,8 +96,7 @@ public class Game
         return wantToQuit;
     }
 
-    private void printHelp() 
-    {
+    private void printHelp() {
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
         System.out.println();
@@ -106,9 +104,8 @@ public class Game
         parser.showCommands();
     }
 
-    private void goRoom(Command command) 
-    {
-        if(!command.hasSecondWord()) {
+    private void goRoom(Command command) {
+        if (!command.hasSecondWord()) {
             System.out.println("Go where?");
             return;
         }
@@ -119,30 +116,26 @@ public class Game
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
-        }
-        else {
+        } else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
     }
 
-    private int restart(Command command){
-        if (command.hasSecondWord()){
+    private int restart(Command command) {
+        if (command.hasSecondWord()) {
             System.out.println("Restart what?");
             return 0;
-        }
-        else{
+        } else {
             return 1;
         }
     }
 
-    private int quit(Command command)
-    {
-        if(command.hasSecondWord()) {
+    private int quit(Command command) {
+        if (command.hasSecondWord()) {
             System.out.println("Quit what?");
             return 0;
-        }
-        else {
+        } else {
             return 2;
         }
     }
@@ -159,6 +152,7 @@ public class Game
         parser.showCommands();
     }
 
+}
 
 
 
