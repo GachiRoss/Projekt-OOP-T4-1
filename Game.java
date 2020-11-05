@@ -7,10 +7,12 @@ public class Game
     // Der erklæres to variabler
     private Parser parser;
     private static Room currentRoom;
+    private Player player;
         
 // constructor - kører metode CreateRooms og laver et nyt objekt
     public Game() 
     {
+        player = new Player("Bob");
         parser = new Parser();
     }
 
