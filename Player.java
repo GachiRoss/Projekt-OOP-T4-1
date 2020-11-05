@@ -31,10 +31,6 @@ public class Player {
         this.name = name;
     }
 
-    public void setPoints() {
-        this.points = points;
-    } // is this needed??
-
 
     //Methods
     public void addTrashToInv(Trash trash) {

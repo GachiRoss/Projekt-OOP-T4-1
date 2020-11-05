@@ -7,4 +7,6 @@ public class RecyclingCenter extends Room {
 
     }
 
+    public Container metalContainer = new Container("");
+
 }
