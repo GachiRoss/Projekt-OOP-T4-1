@@ -92,4 +92,10 @@ public class Player {
         }
         return 0;
     }
+
+    public void search() {
+        for (int i = 0; i < Game.getCurrentRoom().trash.size(); i++) {
+            System.out.println(Game.getCurrentRoom().trash.get(i).getName());
+        }
+    }
 }
