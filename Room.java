@@ -16,9 +16,9 @@ public class Room
 
     private Trash can = new Trash("Metal", "can", 1);
     private Trash battery = new Trash("Hazardous waste", "battery", 2);
-    private Trash pizzaBox = new Trash("Residual waste", "pizza box", 3);
-    private Trash plasticBag = new Trash("Plastic", "plastic bag", 4);
-    private Trash porcelainPlate = new Trash("Hazardous waste", "porcelain plate", 2);
+    private Trash pizzaBox = new Trash("Residual waste", "pizzaBox", 3);
+    private Trash plasticBag = new Trash("Plastic", "plasticBag", 4);
+    private Trash porcelainPlate = new Trash("Hazardous waste", "porcelainPlate", 2);
 
     // Constructor: adds trash objects of Trash to ArrayList trash
 

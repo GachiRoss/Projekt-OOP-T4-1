@@ -72,12 +72,12 @@ public class Player {
 
     public void inspectItem(Command command) {
         if (command.hasSecondWord() == true){
-            int index = Integer.parseInt(command.getSecondWord());
+            int index = Integer.parseInt(command.getSecondWord()) - 1;
             Trash trash = inventoryList.get(index);
-            System.out.println("The name of the trash is " + trash.getName() + " which means it should be sorted with " + trash.getMaterial());
+            System.out.println("The name of the item is \"" + trash.getName() + "\", which means it should be sorted with " + trash.getMaterial());
         }
         else {
-            System.out.println("Check what inventory?!");
+            System.out.println("Check what item?!");
         }
     }
 
