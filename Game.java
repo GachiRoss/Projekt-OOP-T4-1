@@ -1,7 +1,3 @@
-//test test test
-/*
-hmmmmmmm
- */
 public class Game {
     // Der erklæres to variabler
     private Parser parser;
@@ -11,7 +7,6 @@ public class Game {
 // constructor - kører metode CreateRooms og laver et nyt objekt
     public Game() 
     {
-        player = new Player("Bob");
         parser = new Parser();
     }
 
@@ -53,15 +48,17 @@ public class Game {
 
     //ny metode
     public void play() {
-        printWelcome();
-        int finished = 0;
-        while (finished == 1)
+        int finished = 1;
+        while (finished == 1) {
             createRooms();
+            printWelcome();
+            player = new Player("Bob");
             finished = 0;
             while (finished == 0) {
                 Command command = parser.getCommand();
                 finished = processCommand(command);
             }
+        }
         System.out.println("Thank you for playing.  Good bye.");
     }
 
@@ -92,6 +89,24 @@ public class Game {
             wantToQuit = restart(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        }
+        else if (commandWord == CommandWord.INSPECTITEM) {
+            player.inspectItem(command);
+        }
+        else if (commandWord == CommandWord.PICKUP) {
+            player.pickUp(command);
+        }
+        else if (commandWord == CommandWord.OPENINVENTORY) {
+            player.openInventory(command);
+        }
+        else if (commandWord == CommandWord.SEARCH) {
+            player.search();
+        }
+        else if (commandWord == CommandWord.DROP) {
+            player.dropItem(command);
+        }
+        else if (commandWord == CommandWord.HANDBOOK) {
+            handbook();
         }
         return wantToQuit;
     }
@@ -141,7 +156,9 @@ public class Game {
     }
 
     //handbook. Should print out text describing the game and the basic trashsorting function
-    private void handbook() {
+    /*
+    private void help() {
+
         System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
         System.out.println("You'll get more points if you sort the trash correctly");
         System.out.println("Incorrect sorting will result in a loss of points");
@@ -149,10 +166,13 @@ public class Game {
         System.out.println("Plastic trash is a very common type of trash. Plastic bottles, bags, lids and many types of toys (Without the mechanical parts of course)");
         System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
         System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
+
+        //should show the commands available to the player
         parser.showCommands();
     }
+    */
 
-}
+
 
 
 
@@ -166,7 +186,8 @@ public class Game {
     public static Room getCurrentRoom() {
         return currentRoom;
     }
-    private void hint(Command command){
+
+    private void handbook (){
         if (currentRoom.getName().equals("reCenter")){
             System.out.println("Plastic---------------------------------------------------- ");
             System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +

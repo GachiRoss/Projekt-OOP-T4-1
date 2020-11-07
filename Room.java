@@ -14,11 +14,11 @@ public class Room
     public ArrayList<Trash> trash = new ArrayList<Trash>(5); // creates an ArrayList
     private HashMap<String, Room> exits; //?
 
-    private Trash can = new Trash("Metal", "Can", 1);
-    private Trash battery = new Trash("Hazardous waste", "Battery", 2);
-    private Trash pizzaBox = new Trash("Residual waste", "Pizza box", 3);
-    private Trash plasticBag = new Trash("Plastic", "Plastic bag", 4);
-    private Trash porcelainPlate = new Trash("Hazardous waste", "Porcelain plate", 2);
+    private Trash can = new Trash("Metal", "can", 1);
+    private Trash battery = new Trash("Hazardous waste", "battery", 2);
+    private Trash pizzaBox = new Trash("Residual waste", "pizzaBox", 3);
+    private Trash plasticBag = new Trash("Plastic", "plasticBag", 4);
+    private Trash porcelainPlate = new Trash("Hazardous waste", "porcelainPlate", 2);
 
     // Constructor: adds trash objects of Trash to ArrayList trash
 
@@ -72,6 +72,7 @@ public class Room
     }
 
     public Container[] getContainers() {
+        System.out.println("you're not at the Recycling Center, wait til you get there.");
         return null;
     }
 
