@@ -84,7 +84,7 @@ public class Player {
     //method for dropping items in the containers
     public void dropItem(Command command) {
         //method checks if player is in reCenter
-        if (Game.getCurrentRoom().getName().equals("reCenter") == false) {
+        if (Game.getCurrentRoom() instanceof RecyclingCenter == false) {
             System.out.println("Go to the Recycling Center to do this");
         }
         else {
@@ -120,11 +120,10 @@ public class Player {
     }
 
     private void givePoints() {
-        if (Game.getCurrentRoom().getName().equals("reCenter")) {
-            points += Game.getCurrentRoom().getContainers()[whatContain].checkRecycling(trash);
-            whatContain = 0;
-            System.out.println("You got " + points + " point(s) in total!");
-        }
+        RecyclingCenter currentRoom = (RecyclingCenter) Game.getCurrentRoom();
+        points += currentRoom.getContainers()[whatContain].checkRecycling(trash);
+        whatContain = 0;
+        System.out.println("You got " + points + " point(s) in total!");
 
     }
     //method for allowing the player to search for trash in a room

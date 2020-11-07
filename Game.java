@@ -15,13 +15,13 @@ public class Game {
     {
         Room park, beach, street, conSite, foodTruck, home, reCenter;
         // rum dannes som objekter
-        park = new Room("outside in a nice ass park", "park");
-        beach = new Room("outside on a cool beach", "beach");
-        street = new Room("out on the streets, take a knife with you >:)", "street");
-        conSite = new Room("on a wack ass construction site >:(", "conSite");
-        foodTruck = new Room("next to a dope ass food truck... mmmm it do be smelling good", "foodTruck");
-        home = new Room("in your nasty as hell apartment... wait was that a rat!?", "home");
-        reCenter = new RecyclingCenter("The place you sort trash", "reCenter");
+        park = new Room("You're at an park");
+        beach = new Room("You're on a beach");
+        street = new Room("You're out on a big street");
+        conSite = new Room("You're on a construction site");
+        foodTruck = new Room("You're next to a food truck");
+        home = new Room("You're in your apartment");
+        reCenter = new RecyclingCenter("You're at the recycling center");
 
         //exits til rummene erklæres via metoden setExit
         home.setExit("south", foodTruck);
@@ -64,8 +64,8 @@ public class Game {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World of TRASH!");
+        System.out.println("World of TRASH is a new, incredibly cool trash collecting/sorting game");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -112,11 +112,14 @@ public class Game {
     }
 
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You're a strong trendsetter, on a mission!");
+        System.out.println("You're walking around the city you live in collecting TRASH!");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+        System.out.println("Important note: ");
+        System.out.println("When referring to something in the room, use the name of the item.");
+        System.out.println("However, if you're referring to something in your inventory, use the index of the slot it is stored in.");
     }
 
     private void goRoom(Command command) {
@@ -188,7 +191,7 @@ public class Game {
     }
 
     private void handbook (){
-        if (currentRoom.getName().equals("reCenter")){
+        if (currentRoom instanceof RecyclingCenter){
             System.out.println("Plastic---------------------------------------------------- ");
             System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +
                     "in landfills, it could get incinerated or get reused. \n" +
