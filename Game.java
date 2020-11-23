@@ -15,13 +15,13 @@ public class Game {
     {
         Room park, beach, street, conSite, foodTruck, home, reCenter;
         // rum dannes som objekter
-        park = new Room("outside in a nice ass park", "park");
-        beach = new Room("outside on a cool beach", "beach");
-        street = new Room("out on the streets, take a knife with you >:)", "street");
-        conSite = new Room("on a wack ass construction site >:(", "conSite");
-        foodTruck = new Room("next to a dope ass food truck... mmmm it do be smelling good", "foodTruck");
-        home = new Room("in your nasty as hell apartment... wait was that a rat!?", "home");
-        reCenter = new RecyclingCenter("The place you sort trash", "reCenter");
+        park = new Room("You're at an park");
+        beach = new Room("You're on a beach");
+        street = new Room("You're out on a big street");
+        conSite = new Room("You're on a construction site");
+        foodTruck = new Room("You're next to a food truck");
+        home = new Room("You're in your apartment");
+        reCenter = new RecyclingCenter("You're at the recycling center");
 
         //exits til rummene erklæres via metoden setExit
         home.setExit("south", foodTruck);
@@ -64,8 +64,8 @@ public class Game {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the World of TRASH!");
+        System.out.println("World of TRASH is a new, incredibly cool trash collecting/sorting game");
         System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
         System.out.println();
         System.out.println(currentRoom.getLongDescription());
@@ -112,11 +112,14 @@ public class Game {
     }
 
     private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("You're a strong trendsetter, on a mission!");
+        System.out.println("You're walking around the city you live in collecting TRASH!");
         System.out.println();
         System.out.println("Your command words are:");
         parser.showCommands();
+        System.out.println("Important note: ");
+        System.out.println("When referring to something in the room, use the name of the item.");
+        System.out.println("However, if you're referring to something in your inventory, use the index of the slot it is stored in.");
     }
 
     private void goRoom(Command command) {
@@ -154,41 +157,13 @@ public class Game {
             return 2;
         }
     }
-
-    //handbook. Should print out text describing the game and the basic trashsorting function
-    /*
-    private void help() {
-
-        System.out.println("The game operates with four kinds of trash: Metal, plastic, residual waste and dangerous waste");
-        System.out.println("You'll get more points if you sort the trash correctly");
-        System.out.println("Incorrect sorting will result in a loss of points");
-        System.out.println("Metallic trash generally consists of things like cans and other metal objects");
-        System.out.println("Plastic trash is a very common type of trash. Plastic bottles, bags, lids and many types of toys (Without the mechanical parts of course)");
-        System.out.println("Residual waste is everything that cannot be reused. Things like kitchen waste is one of the most common types of residual waste");
-        System.out.println("Dangerous waste is classified as trash dangerous to humans or nature. This includes hospital waste, ceramics, chemicals and cleaning reagents");
-
-        //should show the commands available to the player
-        parser.showCommands();
-    }
-    */
-
-
-
-
-
-
-
-
-
-
-
     
     public static Room getCurrentRoom() {
         return currentRoom;
     }
 
     private void handbook (){
-        if (currentRoom.getName().equals("reCenter")){
+        if (currentRoom instanceof RecyclingCenter){
             System.out.println("Plastic---------------------------------------------------- ");
             System.out.println("Plastic trash is made out of plastic. Plastic trash could end up\n" +
                     "in landfills, it could get incinerated or get reused. \n" +

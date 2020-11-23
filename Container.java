@@ -1,16 +1,16 @@
 public class Container {
 
-    public int ID;
-    public String name;
+    private TrashType trashType;
+    private String name;
 
-    public Container(String containerName, int containerID) {
-        ID = containerID;
+    public Container(String containerName, TrashType trashType) {
+        this.trashType = trashType;
         name = containerName;
     }
     public int checkRecycling(Trash trash) {
         if (trash != null) {
-            if (ID == trash.getID()) {
-                System.out.println("Sorting was correct");
+            if (trashType == trash.getTrashType()) {
+                System.out.println("You sorted correctly");
                 System.out.println("You get a point!");
                 return 1;
             } else {
