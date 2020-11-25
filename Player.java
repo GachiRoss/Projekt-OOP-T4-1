@@ -21,7 +21,7 @@ public class Player {
 
     }
 
-    // Getters and setters for player:
+    // Getters for player:
     private String getName() {
         return name;
     }
@@ -55,6 +55,15 @@ public class Player {
                 System.out.println(trash + " has been added to inventory!");
             }
         }
+        if (trashIndex < 0) {
+            System.out.println("That piece of trash is not here!!");
+        }
+        else {
+            Trash newTrash = Game.getCurrentRoom().trash.get(trashIndex);     // An object of trash is created temporarily called newTrash
+            inventoryList.add(newTrash);
+            Game.getCurrentRoom().trash.remove(trashIndex);
+            System.out.println(trash + " has been added to inventory!");
+        }
     }
 
     public void openInventory(Command command) {
@@ -69,6 +78,7 @@ public class Player {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public void inspectItem(Command command) {
@@ -95,7 +105,7 @@ public class Player {
             } else {
                 //takes the index from the second word and casts it from string to int
                 int index = Integer.parseInt(command.getSecondWord());
-                //decrements index to make it easier for people who dont know about index 0
+                //decrements index to make it easier for people who don't know about index 0
                 index--;
                 //make sure the player cant access numbers outside the inventory size
                 if (index > inventoryList.size() || index < 0) {
